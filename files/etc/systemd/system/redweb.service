@@ -1,0 +1,13 @@
+[Unit]
+Description=Redweb Webserver
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/redweb
+ExecStart=/usr/local/bin/redweb 
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
