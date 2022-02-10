@@ -1,10 +1,12 @@
 package main
 
-import "net/http"
-import "html/template"
-import "path/filepath"
-import "log"
-import "net"
+import (
+	"html/template"
+	"log"
+	"net"
+	"net/http"
+	"path/filepath"
+)
 
 var major string
 var minor string
@@ -22,7 +24,7 @@ func main() {
 }
 
 func serveIndexTemplate(w http.ResponseWriter, r *http.Request) {
-	title := "Test Redweb RPM - v" + major + "." + minor
+	title := "Test Redweb RPM - v" + major + "-" + minor
 	log.Println(r.Method, "/")
 	// Testing
 	// lp := filepath.Join("templates", "index.html")
